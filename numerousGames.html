@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>効果測定</title>
+		<link rel="stylesheet" href="style-1.css" >
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+	</head>
+	
+	<body>
+		<h2>数覚えゲーム</h2>
+		<div id="app">
+			<img v-if="attack%2" v-bind:src="first">
+			<img v-else v-bind:src="second">
+			<p>
+				<strong v-if="start">追加：</strong>
+				<strong v-else>回答：</strong>
+				<label>{{ numOut }}</label>
+				<strong v-if="!start">（残り {{ answer.length - number.length }} 個）</strong>
+			</p>
+			<table>
+				<tr>
+					<td><button v-on:click="numIn(7)">7</button></td>
+					<td><button v-on:click="numIn(8)">8</button></td>
+					<td><button v-on:click="numIn(9)">9</button></td>
+				</tr>
+				<tr>
+					<td><button v-on:click="numIn(4)">4</button></td>
+					<td><button v-on:click="numIn(5)">5</button></td>
+					<td><button v-on:click="numIn(6)">6</button></td>
+				</tr>
+				<tr>
+					<td><button v-on:click="numIn(1)">1</button></td>
+					<td><button v-on:click="numIn(2)">2</button></td>
+					<td><button v-on:click="numIn(3)">3</button></td>
+				</tr>
+				<tr>
+					<td><button v-bind:disabled="start" v-on:click="del">DEL</button></td>
+					<td><button v-on:click="numIn(0)">0</button></td>
+					<td><button v-on:click="equal">⇒</button></td>
+				</tr>
+			</table>
+			<p><a v-bind:href="kouka3">GitHubで公開中</a></p>
+		</div>
+
+		<script>
+			new Vue({
+				el: "#app",
+				data: {
+					number: [],
+					answer: [],
+					start: true,
+					first: '先攻.png',
+					second: '後攻.png',
+					attack: 1,
+					kouka3: 'https://github.com/',
+				},
+				computed: {
+					numOut: function() {
+						if (this.start) return this.answer.join(' → ');
+						else return this.number.join(' → ');
+					}
+				},
+				methods: {
+					numIn: function(n) {
+						if (this.start) this.answer.push(n);
+						else this.number.push(n);
+					},
+					del: function() {
+						this.number.pop();
+					},
+					equal: function() {
+						if (this.start) {
+							alert("プレイヤー交代!");
+							this.start = false;
+							this.attack++;
+						}
+						else {
+							if (this.number.toString() == this.answer.toString()) {
+								alert("OK!\n数を追加してください。");
+								this.number.splice(0, this.number.length);
+								this.start = true;
+							} else {
+								alert(`NG!\n正解は、${this.answer.join(' → ')}`);
+								this.number.splice(0, this.number.length);
+								this.answer.splice(0, this.answer.length);
+								this.attack = 1;
+								this.start = true;
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
