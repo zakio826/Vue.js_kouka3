@@ -76,7 +76,6 @@ input[type='checkbox'] {
 }
 input:checked ~ .base {
   background-color: rgb(85, 228, 213);
-  /* background-color: #ff0077; */
   transition: 0.5s;
 }
 input:checked ~ .circle {
@@ -123,9 +122,6 @@ input:checked ~ .circle {
   height: 3rem;
   left: 0;
 }
-/* .thead th[v-if='!start'] {
-  width: 3rem;
-} */
 
 
 table {
