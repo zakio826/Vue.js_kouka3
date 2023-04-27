@@ -123,9 +123,6 @@ input:checked ~ .circle {
 	height: 3rem;
 	left: 0;
 }
-/* .thead th[v-if='!start'] {
-	width: 3rem;
-} */
 
 
 table {
