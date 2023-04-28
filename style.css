@@ -1,6 +1,6 @@
 @charset "UTF-8";
 html {
-  width: 80%;
+  max-width: 80%;
   margin-right: auto;
   margin-left: auto;
   font-family: sans-serif;
