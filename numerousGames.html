@@ -10,7 +10,7 @@
   <body>
     <h2>数覚えゲーム</h2>
     <hr>
-    <div id="app">
+    <div id="app"><div id="child">
       <h3>{{ Math.ceil(attack/2) }} ターン目</h3>
       <img v-if="attack%2" v-bind:src="first">
       <img v-else v-bind:src="second">
@@ -69,7 +69,7 @@
         </tr>
       </table>
       <a v-bind:href="kouka3"><p><em>GitHubで公開中</em></p></a>
-    </div>
+    </div></div>
 
     <script>
       new Vue({
