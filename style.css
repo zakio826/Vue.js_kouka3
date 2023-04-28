@@ -1,11 +1,24 @@
 @charset "UTF-8";
 html {
+  position: relative;
   width: 80%;
   margin-right: auto;
   margin-left: auto;
   font-family: sans-serif;
   font-size: 16px;
   line-height: 1.5;
+}
+html::before {
+  content: "";
+  display: block;
+  padding-top: 75%;
+}
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 button, select, optgroup, textarea {
@@ -20,12 +33,14 @@ div[id='app'] {
   margin: auto;
 }
 
+
 img {
   display: block;
   margin: -12px auto;
   width: 120px;
   height: auto;
 }
+
 
 table {
   width: 100%;
@@ -51,6 +66,8 @@ td {
 .thead .count {
   padding-left: 6px;
 }
+
+
 
 button {
   cursor: pointer;
@@ -93,6 +110,9 @@ button:disabled {
   background-color: #770038;
 }
 
+
+
+
 .switch_label {
   display: flex;
   align-items: center;
@@ -133,6 +153,10 @@ input:checked ~ .circle {
 .title {
   margin-left: 12px;
 }
+
+
+
+
 
 p {
   padding-top: 6px;
