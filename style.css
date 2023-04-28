@@ -15,11 +15,14 @@ button, select, optgroup, textarea {
 }
 
 #app {
-  position: relative;
   width: 75%;
   margin: auto;
 }
-#app:before {
+#parent {
+  position: relative;
+  width: 100%;
+}
+#parent:before {
   content: "";
   display: block;
   padding-top: 75%;
