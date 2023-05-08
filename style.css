@@ -43,7 +43,7 @@ td {
   width: auto;
   height: 5rem;
 }
-.thead td label span {
+.thead td span {
   color: red;
   font-size: 18px;
   font-weight: bold;
